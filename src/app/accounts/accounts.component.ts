@@ -34,7 +34,7 @@ errorMessage!:string;
 let accountId : string = this.accountFormGroup.value.accountId;
 this.accountObservable=this.accountService.getAccount(accountId,this.currentPage,this.pageSize).pipe(
   catchError(err => {
-    this.errorMessage=err.error.message;
+    this.errorMessage=err.error().message;
     return throwError(err);
 
     })
